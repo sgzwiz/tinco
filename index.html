@@ -1,0 +1,46 @@
+<html>  
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title id="page-title">Board</title>
+
+        <link rel="stylesheet" type="text/css" href="ext/resources/css/ext-all.css">
+
+        <script type="text/javascript" src="ext/adapter/ext/ext-base-debug.js"></script>
+        <script type="text/javascript" src="ext/ext-all-debug.js"></script>
+
+        <script src="js/Ext.ux.Canvas.js" type="text/javascript"></script>
+
+        <script src="js/PE.js" type="text/javascript"></script>
+        <script src="js/PE.Tinco.js" type="text/javascript"/></script>
+        <script src="js/PE.Tinco.Game.js" type="text/javascript"/></script>
+        <script src="js/PE.Tinco.Board.js" type="text/javascript"/></script>
+        <script src="js/PE.Tinco.SGF.js" type="text/javascript"/></script>
+        <script src="js/PE.Tinco.Interpreter.js" type="text/javascript"/></script>
+        <script src="js/PE.Tinco.Render.js" type="text/javascript"/></script>
+        <script src="js/PE.Tinco.Actions.js" type="text/javascript"/></script>
+        <script src="js/PE.Tinco.UI.View.js" type="text/javascript"/></script>
+        <!--
+            w/b to lpay
+            game info (rules?)
+            markup tools
+            active variation on board?
+            time left?
+        -->
+        <script type="text/javascript">
+            Ext.BLANK_IMAGE_URL = 'ext/resources/images/default/s.gif';
+            Ext.Ajax.request({
+                url: 'http://localhost:8686/Tinco/ff4_ex.sgf',
+//                url: 'http://localhost:8686/Tinco/tree.sgf',
+                success: function(result) {
+                    Ext.onReady(PE.Tinco.UI.Viewer.init.createDelegate(PE.Tinco.UI.Editor, [result.responseText]));
+                },
+                failure: function() {
+                    alert("something went wrong!");
+                }
+            });
+        </script>
+    </head>  
+    <body>  
+    </body>  
+</html>  
