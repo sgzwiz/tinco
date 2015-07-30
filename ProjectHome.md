@@ -1,0 +1,1 @@
+SGF viewer written entirely in javascript (uses ExtJS for UI)
